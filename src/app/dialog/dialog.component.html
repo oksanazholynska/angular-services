@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirm action</h1>
+<div mat-dialog-content>Are you sure to remove {{ data.name }}?</div>
+<div mat-dialog-actions class="mt-15">
+  <button mat-raised-button color="primary"
+          [mat-dialog-close]="true" cdkFocusInitial (click)="confirm()">Yes
+  </button>
+  <button mat-raised-button [mat-dialog-close]="false">No</button>
+</div>

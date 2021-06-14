@@ -1,1 +1,66 @@
-<p>albums works!</p>
+<div class="spinner" *ngIf="isLoading">
+  <mat-spinner diameter=50 mode="indeterminate" color="accent"></mat-spinner>
+</div>
+<mat-toolbar class="container">
+  <span>Albums</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+          (click)="add()">
+    <mat-icon>add</mat-icon>
+    ADD
+  </button>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="band">
+    <th mat-header-cell *matHeaderCellDef class="column__align">band</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.band}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="genre">
+    <th mat-header-cell *matHeaderCellDef class="column__align"> genre</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.genre?.join(', ')}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="label">
+    <th mat-header-cell *matHeaderCellDef class="column__align"> label</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.label?.join(', ')}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="column__align">name</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="producer">
+    <th mat-header-cell *matHeaderCellDef class="column__align"> producer</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.producer?.join(', ')}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="releaseDate">
+    <th mat-header-cell *matHeaderCellDef class="column__align"> releaseDate</th>
+    <td mat-cell *matCellDef="let element" class="row__align"> {{element.releaseDate | date }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef class="column__align"> Actions</th>
+    <td mat-cell *matCellDef="let element" class="row__align">
+      <button class="button-action" (click)="editElem(element)">
+        <mat-icon color="warn">edit</mat-icon>
+      </button>
+      <button class="button-action" (click)="delete(element)">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+
+

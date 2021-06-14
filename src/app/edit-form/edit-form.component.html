@@ -1,0 +1,78 @@
+<h2 mat-dialog-title> {{ title }} Element</h2>
+<form [formGroup]="forms" (ngSubmit)="onSubmit()" class="container form">
+  <mat-form-field class="example-full-width">
+    <mat-label>band</mat-label>
+    <input type="text" matInput formControlName="band"/>
+  </mat-form-field>
+  <form [formGroup]="genreFormArray">
+    <div class="genre" *ngFor="let genre of genreFormArray.controls; let i = index">
+      <mat-form-field class="example-full-width">
+        <mat-label>genre</mat-label>
+        <input type="text" matInput [formControlName]="i"/>
+      </mat-form-field>
+      <button type="button" (click)="deleteGenre(i)">
+        <mat-icon color="warn">delete genre</mat-icon>
+      </button>
+    </div>
+    <button mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            (click)="addGenre()">
+      <mat-icon>add</mat-icon>
+      add genre
+    </button>
+  </form>
+  <form [formGroup]="labelFormArray">
+    <div class="label" *ngFor="let label of labelFormArray.controls; let i = index">
+      <mat-form-field class="example-full-width">
+        <mat-label>label</mat-label>
+        <input type="text" matInput [formControlName]="i"/>
+      </mat-form-field>
+      <button type="button" (click)="deleteLabel(i)">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </div>
+    <button mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            (click)="addLabel()">
+      <mat-icon>add</mat-icon>
+      add label
+    </button>
+  </form>
+  <mat-form-field class="example-full-width">
+    <mat-label>name</mat-label>
+    <input type="text" id="name" matInput formControlName="name"/>
+  </mat-form-field>
+  <form [formGroup]="producerFormArray">
+    <div class="producer" *ngFor="let producer of producerFormArray.controls; let i = index">
+      <mat-form-field class="example-full-width">
+        <mat-label>producer</mat-label>
+        <input type="text" matInput [formControlName]="i"/>
+      </mat-form-field>
+      <button type="button" (click)="deleteProducer(i)">
+        <mat-icon color="warn">delete producer</mat-icon>
+      </button>
+    </div>
+    <button mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            (click)="addProducer()">
+      <mat-icon>add</mat-icon>
+      add producer
+    </button>
+  </form>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>releaseDate</mat-label>
+    <input type="text"
+           [matDatepicker]="dp"
+           matInput
+           formControlName="releaseDate"/>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+  <div class="buttons-edit">
+    <button mat-button type="submit" [disabled]="forms.invalid" mat-dialog-close>Save</button>
+    <button mat-button mat-dialog-close>No</button>
+  </div>
+</form>

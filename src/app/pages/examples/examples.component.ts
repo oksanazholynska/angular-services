@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, concatMap, exhaustMap, mergeMap, switchMap } from 'rxjs/operators';
 import { ExamplesService } from '../../services/examples.service';

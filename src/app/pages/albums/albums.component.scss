@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+}
+
+.container {
+  padding: 20px 50px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.button-action {
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+

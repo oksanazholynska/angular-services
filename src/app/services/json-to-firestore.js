@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    // TODO-6
+
 };
 const albums = require('./albums.json');
 const firebase = require('firebase');
@@ -10,6 +10,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 albums.forEach(function (obj) {
+
     db.collection("albums")
         .add({
             name: obj.name,
